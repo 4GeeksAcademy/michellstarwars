@@ -3,13 +3,24 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
+		<nav className=" container navbar navbar-light bg-light mb-3">
 			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+			<img className="navbar-logo"
+                src="https://cdn.freebiesupply.com/logos/large/2x/star-wars-logo-png-transparent.png"
+            />
+				
 			</Link>
-			<div className="ml-auto">
+			<div className="ml-auto"> {/*boton dropdown favoritos */}
 				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
+					<div className="btn-group">
+						<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+							Favorites
+						</button>
+						<ul className="dropdown-menu">
+							<li><a className="dropdown-item" href="#">Action</a></li>
+						</ul>
+					</div>
+
 				</Link>
 			</div>
 		</nav>

@@ -1,0 +1,9 @@
+.navbar-logo {
+    width: 100px; /* Ajusta el tamaño a tu preferencia */
+    height: auto; /* Mantiene la proporción original de la imagen */
+}
+
+h2{
+    font-family: "Bungee Shade", sans-serif;
+    text-align: center;
+}

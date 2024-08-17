@@ -1,44 +1,73 @@
+import axios from "axios";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
-		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+		store: { //VARIABLES GENERALES// //el setStore cambiara el valor de estos valores// Asi es como se declaran variables en Flux// 
+			character: [],
+			planets: [],
+			vehicles: [],
+
+			//VARIABLES ESPECIFICAS//
+			char: [],
+			planet: [],
+			vehicle: []
+
 		},
-		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+		actions: { //Metodo GETcharacter// //FUNCIONES GENERALES//
+			getCharacter: async () => {
+				try {
+					const response = await axios.get("https://www.swapi.tech/api/people/")
+					if (response.data) {
+						console.log(response.data)
+						setStore({ character: response.data.results })
+					}
+				} catch (error) {
+					console.log("ha habido un error" + error)
+				}
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+			getPlanets: async () => { //Metodo GETplanets//
+				try {
+					const response = await axios.get("https://www.swapi.tech/api/planets/")
+					if (response.data) {
+						console.log(response.data)
+						setStore({ planets: response.data.results })
+
+					}
+				} catch (error) {
+					console.log("ha habido un error" + error)
+				}
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+			getVehicles: async () => { //Metodo GETvehicles//
+				try {
+					const response = await axios.get("https://www.swapi.tech/api/vehicles/")
+					if (response.data) {
+						console.log(response.data)
+						setStore({ vehicles: response.data.results })
+					}
+				} catch (error) {
+					console.log("ha habido un error" + error)
+				}
+			},
 
-				//reset the global store
-				setStore({ demo: demo });
+
+
+
+			//FUNCIONES ESPECIFICAS:
+			getChar: async (uid) => {
+				try {
+					const response = await axios.get(`https://www.swapi.tech/api/people/${uid}`)
+					if (response.data) {
+						console.log(response.data)
+						setStore({char: response.data.result.properties})
+					}
+				} catch (error) {
+					console.log("ha habido un error" + error)
+				}
 			}
 		}
+
 	};
 };
 
