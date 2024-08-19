@@ -1,15 +1,34 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import "../../styles/home.css";
+import { Context } from "../store/appContext"
+import { useNavigate } from "react-router";
 
 export const Navbar = () => {
+
+	const { store, actions } = useContext(Context)
+	const navigate = useNavigate();
 	return (
-		<nav className=" container navbar navbar-light bg-light mb-3">
+		<nav className=" container navbar bg-dark mb-3 p-2">
 			<Link to="/">
-			<img className="navbar-logo"
-                src="https://cdn.freebiesupply.com/logos/large/2x/star-wars-logo-png-transparent.png"
-            />
-				
-			</Link>
+				<img className="navbar-logo"
+					src="https://lumiere-a.akamaihd.net/v1/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png?region=0,0,586,254"
+				/></Link>
+
+			<div className="text-center m-2">
+				<button type="button" className="btn btn-outline-warning" onClick={() => navigate("/character")}>
+					go to characters
+				</button>
+
+				<button type="button" className="btn btn-outline-warning" onClick={() => navigate("/planets")}>
+					go to planets
+				</button>
+				<button type="button" className="btn btn-outline-warning" onClick={() => navigate("/vehicles")}>
+					go to vehicles
+				</button>
+			</div>
+
+
 			<div className="ml-auto"> {/*boton dropdown favoritos */}
 				<Link to="/demo">
 					<div className="btn-group">

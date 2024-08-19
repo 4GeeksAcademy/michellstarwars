@@ -11,7 +11,7 @@ function CharacterUid() {
     }, [actions, uid]);
 
     return (
-        <div>
+        <div className="contenedor">
             <h1>{store.char.name}</h1>
             <p><strong>Birth Year:</strong> {store.char.birth_year}</p>
             <p><strong>Eye Color:</strong> {store.char.eye_color}</p>

@@ -12,7 +12,7 @@ function Planets() {
 
     return (
         <div>
-            <h2>Planets</h2>
+            <h2 className="tittle">PLANETS</h2>
             <div className="d-flex flex-wrap justify-content-center">
                 {store.planets.map((planet) => (
                     <div key={planet.uid}>

@@ -12,7 +12,7 @@ function Vehicles() {
 
     return (
         <div>
-            <h2>Vehicles</h2>
+            <h2 className="tittle">VEHICLES</h2>
             <div className="d-flex flex-wrap justify-content-center">
                 {store.vehicles.map((vehicle) => (
                     <div key={vehicle.uid}>

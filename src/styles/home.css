@@ -1,9 +1,33 @@
 .navbar-logo {
-    width: 100px; /* Ajusta el tamaño a tu preferencia */
-    height: auto; /* Mantiene la proporción original de la imagen */
+  width: 100px;
+  /* Ajusta el tamaño a tu preferencia */
+  height: auto;
+  /* Mantiene la proporción original de la imagen */
 }
 
-h2{
-    font-family: "Bungee Shade", sans-serif;
-    text-align: center;
+.tittle {
+  font-family: "Ysabeau SC", sans-serif;
+  text-align: center;
+  color: darkgoldenrod;
+}
+
+body {
+  background-image: url("https://wallpapers.com/images/featured/4k-star-wars-5binreit9du28bif.jpg");
+  background-size: cover;
+}
+
+.card:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  color: darkgoldenrod;
+
+}
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contenedor{
+  background-color:rgba(184, 135, 11, 0.232);
+  width: 500px;
+  color: beige;
+  padding: 20px;
 }

@@ -12,7 +12,7 @@ function Character() {
 
     return (
         <div>
-            <h2>Characters</h2>
+            <h2 className="tittle">CHARACTERS</h2>
             <div className="d-flex flex-wrap justify-content-center">
                 {store.character.map((charact) => (
                     <div key={charact.uid}>

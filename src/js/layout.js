@@ -11,6 +11,8 @@ import Character from "./views/Character";
 import Planets from "./views/Planets"
 import CharacterUid from "./views/CharacterUid";
 import Vehicles from "./views/Vehicles";
+import PlanetsUid from "./views/PlanetsUid";
+import VehiclesUid from "./views/VehiclesUid";
 //create your first component
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -27,7 +29,9 @@ const Layout = () => {
 						<Route path="/character" element={<Character />} />
 						<Route path="/character/:uid" element={<CharacterUid />} />
 						<Route path="/planets" element={<Planets />} />
+						<Route path="/planets/:uid" element={<PlanetsUid />} />
 						<Route path="/vehicles" element={<Vehicles />} />
+						<Route path="/vehicles/:uid" element={<VehiclesUid />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />
