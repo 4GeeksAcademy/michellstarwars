@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router";
+import { Context } from "../store/appContext";
 
 const Card = ({ name, uid, type }) => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const { actions } = useContext(Context);
     return (
         <div className="card" style={{ width: "18rem", margin: "10px" }} >
             <img
@@ -17,8 +19,9 @@ const Card = ({ name, uid, type }) => {
                     <button onClick={() => navigate(`/${type}/${uid}`)} className="btn btn-primary">
                         Learn more
                     </button>
-                    <button className="btn btn-outline-danger" >
-                        <i className="fa-solid fa-heart"></i>
+                    <button
+                        className="btn btn-outline-danger">
+                        <i className="fa-solid fa-heart">Favorites</i>
                     </button>
                 </div>
             </div>

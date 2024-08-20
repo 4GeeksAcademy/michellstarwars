@@ -10,8 +10,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			//VARIABLES ESPECIFICAS//
 			char: [],
 			planet: [],
-			vehicle: []
-
+			vehicle: [],
+			favorites: []
 		},
 
 		//FUNCIONES GENERALES//
@@ -86,11 +86,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("ha habido un error" + error)
 				}
-			}
+			},
+
 
 		}
 
-	};
+	}
+
+
+
+
 };
 
 export default getState;

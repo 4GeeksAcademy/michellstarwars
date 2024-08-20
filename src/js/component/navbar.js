@@ -4,10 +4,12 @@ import "../../styles/home.css";
 import { Context } from "../store/appContext"
 import { useNavigate } from "react-router";
 
+
 export const Navbar = () => {
 
 	const { store, actions } = useContext(Context)
 	const navigate = useNavigate();
+
 	return (
 		<nav className=" container navbar bg-dark mb-3 p-2">
 			<Link to="/">
@@ -29,18 +31,15 @@ export const Navbar = () => {
 			</div>
 
 
-			<div className="ml-auto"> {/*boton dropdown favoritos */}
-				<Link to="/demo">
-					<div className="btn-group">
-						<button type="button" className="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-							Favorites
-						</button>
-						<ul className="dropdown-menu">
-							<li><a className="dropdown-item" href="#">Action</a></li>
-						</ul>
-					</div>
-
-				</Link>
+			<div class="dropdown">
+				<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Dropdown button
+				</button>
+				<ul className="dropdown-menu">
+					<li><a className="dropdown-item" href="#">Action</a></li>
+					<li><a className="dropdown-item" href="#">Another action</a></li>
+					<li><a className="dropdown-item" href="#">Something else here</a></li>
+				</ul>
 			</div>
 		</nav>
 	);
