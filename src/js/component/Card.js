@@ -21,7 +21,7 @@ const Card = ({ name, uid, type }) => {
                     </button>
                     <button
                         className="btn btn-outline-danger">
-                        <i className="fa-solid fa-heart">Favorites</i>
+                        <i className="fa-solid fa-heart"></i> {/*BOTON FAVORITOS*/}
                     </button>
                 </div>
             </div>

@@ -87,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("ha habido un error" + error)
 				}
 			},
-
+		
 
 		}
 
