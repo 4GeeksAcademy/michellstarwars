@@ -4,7 +4,18 @@ import { Context } from "../store/appContext";
 
 const Card = ({ name, uid, type }) => {
     const navigate = useNavigate();
-    const { actions } = useContext(Context);
+    const { store, actions } = useContext(Context);
+
+    // VERIFICA SI EL ELEMENTO YA ES FAVORITO***********
+    const isFavorite = store.favorites.some(fav => fav.uid === uid);
+    const handleFavoriteClick = () => {
+        const item = { name, uid, type };
+        if (isFavorite) {
+            actions.removeFavorite(item);
+        } else {
+            actions.addFavorite(item);
+        }
+    };////******
     return (
         <div className="card" style={{ width: "18rem", margin: "10px" }} >
             <img
@@ -19,9 +30,10 @@ const Card = ({ name, uid, type }) => {
                     <button onClick={() => navigate(`/${type}/${uid}`)} className="btn btn-primary">
                         Learn more
                     </button>
-                    <button
-                        className="btn btn-outline-danger">
-                        <i className="fa-solid fa-heart"></i> {/*BOTON FAVORITOS*/}
+                    <button //BOTON FAVORITOS**********
+                        className="btn btn-outline-danger"
+                        onClick={handleFavoriteClick}>
+                        <i className={`fa-solid ${isFavorite ? 'fa-heart' : 'fa-heart'}`} style={{ color: isFavorite ? 'red' : 'gray' }} ></i>
                     </button>
                 </div>
             </div>

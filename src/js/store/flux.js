@@ -2,7 +2,7 @@ import axios from "axios";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
-		store: { //VARIABLES GENERALES// //el setStore cambiara el valor de estos valores// Asi es como se declaran variables en Flux// 
+		store: { //VARIABLES GENERALES// //el setStore cambiara el valor de estos valores cuando se llame a la base d datos//  
 			character: [],
 			planets: [],
 			vehicles: [],
@@ -64,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("ha habido un error" + error)
 				}
-			},//desde aqui empiezo//
+			},
 			getPlanet: async (uid) => {
 				try {
 					const response = await axios.get(`https://www.swapi.tech/api/planets/${uid}`)
@@ -87,15 +87,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("ha habido un error" + error)
 				}
 			},
-		
+//BOTON AÑADIR FAVORITO
+            addFavorite: (item) => {
+                const store = getStore();
+                if (!store.favorites.some(fav => fav.uid === item.uid)) {
+                    setStore({ favorites: [...store.favorites, item] });
+                }
+            },
 
+//BOTON REMOVER FAVORITO
+			removeFavorite: (item) => {
+                const store = getStore();
+                setStore({
+                    favorites: store.favorites.filter(fav => fav.uid !== item.uid)
+                });
+            }
 		}
 
 	}
-
-
-
-
 };
 
 export default getState;
