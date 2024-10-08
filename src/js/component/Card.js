@@ -30,7 +30,7 @@ const Card = ({ name, uid, type }) => {
                     <button onClick={() => navigate(`/${type}/${uid}`)} className="btn btn-primary">
                         Learn more
                     </button>
-                    <button //BOTON FAVORITOS**********
+                    <button //BOTON FAV
                         className="btn btn-outline-danger"
                         onClick={handleFavoriteClick}>
                         <i className={`fa-solid ${isFavorite ? 'fa-heart' : 'fa-heart'}`} style={{ color: isFavorite ? 'red' : 'gray' }} ></i>
