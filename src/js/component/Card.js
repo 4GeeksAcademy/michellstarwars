@@ -15,7 +15,7 @@ const Card = ({ name, uid, type }) => {
         } else {
             actions.addFavorite(item);
         }
-    };////******
+    };
     return (
         <div className="card" style={{ width: "18rem", margin: "10px" }} >
             <img
