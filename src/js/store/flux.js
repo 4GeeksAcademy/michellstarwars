@@ -2,7 +2,7 @@ import axios from "axios";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
-		store: { //VARIABLES GENERALES// //el setStore cambiara el valor de estos valores cuando se llame a la base d datos//  
+		store: { //VARIABLES GENERALES//  
 			character: [],
 			planets: [],
 			vehicles: [],
@@ -27,7 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("ha habido un error" + error)
 				}
 			},
-			//Metodo GETplanets//
+			//GETplanets//
 			getPlanets: async () => {
 				try {
 					const response = await axios.get("https://www.swapi.tech/api/planets/")
@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("ha habido un error" + error)
 				}
 			},
-			//Metodo GETvehicles//
+			//GETvehicles//
 			getVehicles: async () => {
 				try {
 					const response = await axios.get("https://www.swapi.tech/api/vehicles/")
@@ -87,7 +87,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("ha habido un error" + error)
 				}
 			},
-//BOTON AÑADIR FAVORITO
+//ADD FAV
             addFavorite: (item) => {
                 const store = getStore();
                 if (!store.favorites.some(fav => fav.uid === item.uid)) {
@@ -95,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
 
-//BOTON REMOVER FAVORITO
+//DEL FAV
 			removeFavorite: (item) => {
                 const store = getStore();
                 setStore({
